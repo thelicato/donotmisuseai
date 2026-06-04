@@ -29,4 +29,12 @@
     const isDark = document.documentElement.classList.contains(DARK_CLASS);
     setTheme(isDark ? 'light' : 'dark');
   });
+
+  var navToggle = document.getElementById('navToggle');
+  var navMenu = document.getElementById('navbarMenu');
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('is-open');
+    });
+  }
 })();
