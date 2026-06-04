@@ -1,6 +1,7 @@
 +++
 title = "Principles"
 description = "Domains where AI should not be used"
+render = false
 
 [extra]
 principles = [
