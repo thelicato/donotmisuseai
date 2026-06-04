@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <h1>{{ section.title }}</h1>
+  <p class="subtitle">{{ section.description }}</p>
+</header>
+
+<hr class="divider">
+
+<div class="manifesto-intro">
+  {{ section.content | safe }}
+</div>
+
+<hr class="divider">
+
+<div class="notice">
+  This website was designed by AI (it's good at that). The content is human-generated.
+</div>
+
+{% set principles_section = get_section(path="principles/_index.md") %}
+{% for principle in principles_section.extra.principles %}
+<div class="principle">
+  <div class="principle-number">{% if principle.number < 10 %}0{% endif %}{{ principle.number }}</div>
+  <h2 class="principle-title">{{ principle.title }}</h2>
+  {% for para in principle.description %}
+  <p class="principle-desc">{{ para }}</p>
+  {% endfor %}
+  <div class="principle-tags">
+    {% for tag in principle.tags %}
+    <span class="tag{% if tag.class %} tag-{{ tag.class }}{% endif %}">{{ tag.label }}</span>
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}
+
+<div class="cta">
+  <p>This is a living document. Categories will evolve as technology and society change.</p>
+  <a href="{{ config.extra.github_url }}">Contribute on GitHub</a>
+</div>
+{% endblock content %}

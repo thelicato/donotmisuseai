@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} - Do Not Misuse AI{% endblock title %}
+{% block description %}{{ page.description }}{% endblock description %}
+{% block og_title %}{{ page.title }} - Do Not Misuse AI{% endblock og_title %}
+{% block og_description %}{{ page.description }}{% endblock og_description %}
+{% block tw_title %}{{ page.title }} - Do Not Misuse AI{% endblock tw_title %}
+{% block tw_description %}{{ page.description }}{% endblock tw_description %}
+
+{% block content %}
+<header>
+  <h1>{{ page.title }}</h1>
+  {% if page.description %}
+  <p class="subtitle">{{ page.description }}</p>
+  {% endif %}
+</header>
+
+<hr class="divider">
+
+<div class="content-body">
+  {{ page.content | safe }}
+</div>
+{% endblock content %}
