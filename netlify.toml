@@ -8,12 +8,19 @@ ZOLA_VERSION = "0.22.1"
 # Redirect default Netlify subdomain to primary domain
 
 [[redirects]]
- from = "https://donotmisuseai.netlify.app/*"
- to = "https://donotmisuseai.com/:splat"
- status = 301
- force = true #COMMENT: ensure that we always redirect
+  from = "https://donotmisuseai.netlify.app/*"
+  to = "https://donotmisuseai.com/:splat"
+  status = 301
+  force = true #COMMENT: ensure that we always redirect
 
 [[redirects]]
- from = "/*/index.html"
- to = "/:splat/"
- status = 301
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/:page/index.html"
+  to = "/:page/"
+  status = 301
+  force = true
