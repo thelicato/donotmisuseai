@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found - Do Not Misuse AI{% endblock title %}
+
+{% block content %}
+<header>
+  <h1>404</h1>
+  <p class="subtitle">This page does not exist.</p>
+</header>
+
+<hr class="divider">
+
+<div class="content-body">
+  <p>The page you're looking for might have been moved, deleted, or never existed.</p>
+  <p><a href="{{ get_url(path='/') }}">Return to the manifesto</a></p>
+</div>
+{% endblock content %}
