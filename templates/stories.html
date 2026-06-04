@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header>
+  <h1>{{ section.title }}</h1>
+  <p class="subtitle">{{ section.description }}</p>
+</header>
+
+<hr class="divider">
+
+{% set good_stories = section.extra.stories | filter(attribute="type", value="good") %}
+{% set bad_stories = section.extra.stories | filter(attribute="type", value="bad") %}
+
+{% if good_stories %}
+<h2 class="story-section-title story-section-title--good">Good Stories</h2>
+{% for story in good_stories %}
+<div class="story-card story-card--good">
+  <h3 class="story-card-title">{{ story.title }}</h3>
+  {% for para in story.description %}
+  <p class="story-card-desc">{{ para }}</p>
+  {% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+
+{% if bad_stories %}
+<h2 class="story-section-title story-section-title--bad">Bad Stories</h2>
+{% for story in bad_stories %}
+<div class="story-card story-card--bad">
+  <h3 class="story-card-title">{{ story.title }}</h3>
+  {% for para in story.description %}
+  <p class="story-card-desc">{{ para }}</p>
+  {% endfor %}
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content %}
