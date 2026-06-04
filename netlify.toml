@@ -3,7 +3,7 @@ publish = "public"
 command = "zola build"
 
 [build.environment]
-ZOLA_VERSION = "0.22.0"
+ZOLA_VERSION = "0.22.1"
 
 # Redirect default Netlify subdomain to primary domain
 
